@@ -172,6 +172,10 @@ callback = tfk.callbacks.ModelCheckpoint("./models/model.{epoch:02d}-{val_loss:.
 
 history = model.fit(X_train, validation_data=Y_train, batch_size=batch_size, epochs=24, verbose=1, callbacks=[callback])
 
+# Save the model
+model.save("my_unet_model.h5")
+
+
 # Load the model for validation
 model = tfk.models.load_model("my_unet_model.h5")
 
